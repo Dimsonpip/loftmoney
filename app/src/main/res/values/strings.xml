@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Loftmoney</string>
+    <string name="helloTitle">Hello World!</string>
+    <string name="nextTitle">Go to next Activity</string>
+</resources>
