@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String title = "Title";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent secondActivity = new Intent(getApplicationContext(), SecondActivity.class);
-                secondActivity.putExtra("Title", "Iron man");
+                secondActivity.putExtra(title, "Iron man");
                 startActivity(secondActivity);
             }
         });
