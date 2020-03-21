@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(secondActivity);
             }
         });
+        findViewById(R.id.btnMainAdd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent AddItemActivity = new Intent(getApplicationContext(), AddItemActivity.class);
+                startActivity(AddItemActivity);
+            }
+        });
 
     }
 

@@ -5,4 +5,5 @@
     <string name="editText_Product_hint">Title</string>
     <string name="editText_Price_hint">Price</string>
     <string name="btnTextAdd">Add</string>
+    <string name="nextAdd">Go to Add Item</string>
 </resources>
