@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Loftmoney</string>
+    <string name="app_name" translatable="false">Loftmoney</string>
     <string name="helloTitle">Hello World!</string>
     <string name="nextTitle">Go to next Activity</string>
+    <string name="editText_Product_hint">Title</string>
+    <string name="editText_Price_hint">Price</string>
+    <string name="btnTextAdd">Add</string>
 </resources>
