@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="helloTitle">Привет мир!</string>
+    <string name="nextTitle">Далее</string>
+    <string name="editText_Product_hint">Название</string>
+    <string name="editText_Price_hint">Цена</string>
+    <string name="btnTextAdd">Добавить</string>
+</resources>
