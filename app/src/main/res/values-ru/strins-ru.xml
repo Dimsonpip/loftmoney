@@ -4,6 +4,6 @@
     <string name="nextTitle">Далее</string>
     <string name="editText_Product_hint">Название</string>
     <string name="editText_Price_hint">Цена</string>
-    <string name="btnTextAdd">Добавить</string>
+    <string name="btnTextAdd">✓ Добавить</string>
     <string name="nextAdd">Добавить продукт</string>
 </resources>
