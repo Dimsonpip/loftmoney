@@ -21,7 +21,7 @@
         android:textColor="@color/color_editText_hint">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_title"
+            android:id="@+id/title_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -40,7 +40,7 @@
         android:textColor="@color/color_editText_hint">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_price"
+            android:id="@+id/price_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="24sp"
