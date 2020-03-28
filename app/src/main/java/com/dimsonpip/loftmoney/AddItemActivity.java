@@ -25,8 +25,8 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        textInputTitle = findViewById(R.id.text_input_title);
-        textInputPrice = findViewById(R.id.text_input_price);
+        textInputTitle = findViewById(R.id.title_edit_text);
+        textInputPrice = findViewById(R.id.price_edit_text);
         btnAddTitle = findViewById(R.id.btnAdd);
 
         textInputTitle.addTextChangedListener(titleTextWatcher);
