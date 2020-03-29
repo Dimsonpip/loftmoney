@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.dimsonpip.loftmoney.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.fragment_container, new BudgetFragment());
         transaction.commit();
+
+        TabLayout tabLayout = findViewById(R.id.tabs_main);
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.charges));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.income));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.budget));
     }
 
 

@@ -70,5 +70,4 @@
         android:text="@string/btnTextAdd"
         android:enabled="false"
         />
-
 </RelativeLayout>
