@@ -4,6 +4,6 @@
     <string name="nextTitle">Go to next Activity</string>
     <string name="editText_Product_hint">Title</string>
     <string name="editText_Price_hint">Price</string>
-    <string name="btnTextAdd">Add</string>
-    <string name="nextAdd">Go to Add Item</string>
+    <string name="btnTextAdd">✓ Add</string>
+    <string name="nextAdd">Add Title</string>
 </resources>

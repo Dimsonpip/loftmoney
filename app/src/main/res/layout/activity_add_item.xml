@@ -15,31 +15,43 @@
         android:paddingStart="33dp"
         android:paddingEnd="104dp"
         >
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:textColor="@color/color_editText_hint"
-        android:lineSpacingExtra="0sp"
-        android:inputType="text"
-        android:hint="@string/editText_Product_hint"
-        />
+        android:textColor="@color/color_editText_hint">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/title_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textColor="@color/color_editText"
+            android:lineSpacingExtra="0sp"
+            android:inputType="text"
+            android:hint="@string/editText_Product_hint"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="61dp"
-        android:textSize="24sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:textColor="@color/color_editText_hint"
-        android:lineSpacingExtra="0sp"
-        android:inputType="numberDecimal"
-        android:hint="@string/editText_Price_hint"
-        />
+        android:textColor="@color/color_editText_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/price_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textColor="@color/color_editText"
+            android:lineSpacingExtra="0sp"
+            android:inputType="numberDecimal"
+            android:hint="@string/editText_Price_hint"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button
@@ -48,14 +60,15 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
         android:background="@null"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
-        android:textColor="@color/btnColorText"
+        android:textColor="@color/btn_color_selector"
         android:textSize="14sp"
         android:letterSpacing="0.04"
         android:text="@string/btnTextAdd"
+        android:enabled="false"
         />
 
 </RelativeLayout>
-

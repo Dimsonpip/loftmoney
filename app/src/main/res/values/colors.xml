@@ -2,8 +2,10 @@
 <resources>
     <color name="colorPrimary">#3574FA</color>
     <color name="colorPrimaryDark">#0555FF</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#dbdbdb</color>
     <color name="colorText">#4A90E2</color>
-    <color name="btnColorText">#eaeaea</color>
+    <color name="btnColorDisabled">#eaeaea</color>
+    <color name="btnColorEnabled">#7ed321</color>
     <color name="color_editText_hint">#dbdbdb</color>
+    <color name="color_editText">#3574fa</color>
 </resources>
