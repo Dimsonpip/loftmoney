@@ -43,12 +43,12 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </FrameLayout>
+    </androidx.viewpager.widget.ViewPager>
 
 
 

@@ -1,9 +1,20 @@
 package com.dimsonpip.loftmoney.screens.main;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.dimsonpip.loftmoney.R;
 import com.google.android.material.tabs.TabLayout;
@@ -15,68 +26,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.fragment_container, new BudgetFragment());
-        transaction.commit();
-
         TabLayout tabLayout = findViewById(R.id.tabs_main);
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.charges));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.income));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.budget));
+
+        ViewPager viewPager = findViewById(R.id.viewpager);
+
+        viewPager.setAdapter(new BudgetPagerAdapter(getSupportFragmentManager(),
+                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT));
+
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setText(R.string.charges);
+        tabLayout.getTabAt(1).setText(R.string.income);
+        tabLayout.getTabAt(2).setText(R.string.budget);
     }
 
-
- /*   private ChargesAdapter chargesAdapter = new ChargesAdapter();
-    static int ADD_ITEM_REQUEST = 1;
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerMain);
-        recyclerView.setAdapter(chargesAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                LinearLayoutManager.VERTICAL, false));
+    static class BudgetPagerAdapter extends FragmentPagerAdapter {
 
 
-        findViewById(R.id.fabMain).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent AddItemActivityIntent = new Intent(getApplicationContext(), AddItemActivity.class);
-                startActivityForResult(AddItemActivityIntent, ADD_ITEM_REQUEST);
-            }
-        });
+        public BudgetPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+            super(fm, behavior);
+        }
 
-    }
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return new BudgetFragment();
+        }
 
- /*   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == ADD_ITEM_REQUEST && resultCode == RESULT_OK && data != null) {
-            ChargeModel chargeModel = (ChargeModel) data.getSerializableExtra(ChargeModel.KEY_NAME);
-            chargesAdapter.addDataToTop(chargeModel);
+        @Override
+        public int getCount() {
+            return 3;
         }
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }*/
-
 }
