@@ -14,5 +14,6 @@
     <color name="color_divider">#efefef</color>
     <color name="color_background_mainText">#FFFFFF</color>
     <color name="color_tabs_text">#FFFFFF</color>
+    <color name="color_income_price">#7ed321</color>
 
 </resources>
