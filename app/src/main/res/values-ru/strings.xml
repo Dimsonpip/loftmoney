@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Loftmoney</string>
+    <string name="editText_Product_hint">Название</string>
+    <string name="editText_Price_hint">Цена</string>
+    <string name="btnTextAdd">✓ Добавить</string>
+    <string name="charges">РАСХОДЫ</string>
+    <string name="income">ДОХОДЫ</string>
+    <string name="budget">БЮДЖЕТ</string>
+    <string name="main_header">Учёт бюджета</string>
+</resources>

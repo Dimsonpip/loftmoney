@@ -1,18 +1,17 @@
-package com.dimsonpip.loftmoney;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.dimsonpip.loftmoney.screens.second;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.text.TextWatcher;
-import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.dimsonpip.loftmoney.R;
 import com.dimsonpip.loftmoney.screens.main.adapter.ChargeModel;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
@@ -38,8 +37,8 @@ public class AddItemActivity extends AppCompatActivity {
         btnAddTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = textInputTitle.getText().toString();
-                String price = textInputPrice.getText().toString();
+                String name = Objects.requireNonNull(textInputTitle.getText()).toString();
+                String price = Objects.requireNonNull(textInputPrice.getText()).toString();
 
                 String priceString = price + " ₽";
                 ChargeModel chargeModel = new ChargeModel(name, priceString);

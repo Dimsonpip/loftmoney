@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddItemActivity">
+    tools:context=".screens.second.AddItemActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,5 +70,4 @@
         android:text="@string/btnTextAdd"
         android:enabled="false"
         />
-
 </RelativeLayout>
