@@ -8,4 +8,9 @@
     <color name="btnColorEnabled">#7ed321</color>
     <color name="color_editText_hint">#dbdbdb</color>
     <color name="color_editText">#3574fa</color>
+    <color name="color_mainList_text">#666664</color>
+    <color name="color_mainList_price">#4a90e2</color>
+    <color name="color_fab">#ffc107</color>
+    <color name="color_divider">#efefef</color>
+    <color name="color_background_mainText">#FFFFFF</color>
 </resources>

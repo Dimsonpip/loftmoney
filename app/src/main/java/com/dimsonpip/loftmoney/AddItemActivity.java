@@ -2,12 +2,15 @@ package com.dimsonpip.loftmoney;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.View;
 import android.widget.Button;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+import com.dimsonpip.loftmoney.screens.main.adapter.ChargeModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,7 +35,24 @@ public class AddItemActivity extends AppCompatActivity {
         textInputTitle.addTextChangedListener(titleTextWatcher);
         textInputPrice.addTextChangedListener(titleTextWatcher);
 
+        btnAddTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = textInputTitle.getText().toString();
+                String price = textInputPrice.getText().toString();
+
+                String priceString = price + " ₽";
+                ChargeModel chargeModel = new ChargeModel(name, priceString);
+
+                Intent intent = new Intent();
+                intent.putExtra(ChargeModel.KEY_NAME, chargeModel);
+                setResult(RESULT_OK, intent);
+                finish();
+
+            }
+        });
     }
+
     private TextWatcher titleTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -52,4 +72,5 @@ public class AddItemActivity extends AppCompatActivity {
 
         }
     };
+
 }
