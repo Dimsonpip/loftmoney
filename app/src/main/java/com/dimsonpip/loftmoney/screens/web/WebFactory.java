@@ -8,9 +8,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebFactory {
 
-    static WebFactory instance = null;
+    private WebFactory instance = null;
 
-    static WebFactory getInstance() {
+    public  WebFactory getInstance() {
         if (instance == null) {
             instance = new WebFactory();
         }
@@ -22,7 +22,7 @@ public class WebFactory {
     private Retrofit retrofit;
     private OkHttpClient okHttpClient;
 
-    private  WebFactory() {
+    public  WebFactory() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -31,10 +31,19 @@ public class WebFactory {
                 .build();
 
         retrofit = new Retrofit.Builder()
+                .client(okHttpClient)
                 .baseUrl("https://verdant-violet.glitch.me/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
+    }
+
+    public GetItemRequest getItemRequest() {
+        return retrofit.create(GetItemRequest.class);
+    }
+
+    public PostItemRequest postItemRequest() {
+        return retrofit.create(PostItemRequest.class);
     }
 }

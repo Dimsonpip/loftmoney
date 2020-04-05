@@ -1,6 +1,6 @@
 package com.dimsonpip.loftmoney.screens.web.models;
 
-class ItemRemote {
+public class ItemRemote {
 
     private String id;
     private String name;
@@ -27,6 +27,5 @@ class ItemRemote {
     public String getDate() {
         return date;
     }
-
 
 }

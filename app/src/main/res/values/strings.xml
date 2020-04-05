@@ -7,4 +7,5 @@
     <string name="income">INCOMES</string>
     <string name="budget">BUDGET</string>
     <string name="main_header">Budget accounting</string>
+    <string name="message_success">Successfully added!</string>
 </resources>

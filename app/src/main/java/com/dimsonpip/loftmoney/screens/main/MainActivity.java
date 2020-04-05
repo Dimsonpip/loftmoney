@@ -11,7 +11,17 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.dimsonpip.loftmoney.R;
 import com.dimsonpip.loftmoney.screens.main.adapter.BudgetPagerAdapter;
+import com.dimsonpip.loftmoney.screens.web.WebFactory;
+import com.dimsonpip.loftmoney.screens.web.models.GetItemResponseModel;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,5 +40,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setText(R.string.income);
         tabLayout.getTabAt(2).setText(R.string.budget);
     }
+
 
 }
