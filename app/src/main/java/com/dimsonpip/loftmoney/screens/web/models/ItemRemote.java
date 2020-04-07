@@ -4,7 +4,7 @@ public class ItemRemote {
 
     private String id;
     private String name;
-    private String price;
+    private Integer price;
     private String type;
     private String date;
 
@@ -16,8 +16,7 @@ public class ItemRemote {
         return name;
     }
 
-    public String getPrice() {
-        return price;
+    public Integer getPrice() {return price;
     }
 
     public String getType() {

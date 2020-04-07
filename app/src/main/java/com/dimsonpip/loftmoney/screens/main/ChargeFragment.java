@@ -21,6 +21,7 @@ import com.dimsonpip.loftmoney.screens.second.AddItemActivity;
 import com.dimsonpip.loftmoney.screens.web.WebFactory;
 import com.dimsonpip.loftmoney.screens.web.models.GetItemResponseModel;
 import com.dimsonpip.loftmoney.screens.web.models.ItemRemote;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,30 +95,9 @@ public class ChargeFragment extends Fragment {
 
                     }
                 });
-/*                .subscribe(new Consumer<GetItemResponseModel>() {
-                    @Override
-                    public void accept(GetItemResponseModel getItemResponseModel) throws Exception {
-                        List<ChargeModel> chargeModels = new ArrayList<>();
-                        for (ItemRemote itemRemote: getItemResponseModel.getData()) {
-                            chargeModels.add(new ChargeModel(itemRemote));
-                        }
-
-                        chargesAdapter.setNewData(chargeModels);
-
-                    }
-                }); */
 
         disposables.add(response);
 
     }
 
- /*   @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == ADD_ITEM_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            ChargeModel chargeModel = (ChargeModel) data.getSerializableExtra(ChargeModel.KEY_NAME);
-            chargesAdapter.addDataToTop(chargeModel);
-        }
-    }*/
 }
