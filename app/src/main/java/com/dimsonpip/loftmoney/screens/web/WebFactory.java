@@ -10,13 +10,11 @@ public class WebFactory {
 
     private WebFactory instance = null;
 
-    public  WebFactory getInstance() {
+    public WebFactory getInstance() {
         if (instance == null) {
             instance = new WebFactory();
         }
-
         return instance;
-
     }
 
     private Retrofit retrofit;
@@ -36,7 +34,6 @@ public class WebFactory {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-
     }
 
     public GetItemRequest getItemRequest() {

@@ -21,12 +21,12 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-
 public class AddItemActivity extends AppCompatActivity {
     private TextInputEditText textInputTitle;
     private TextInputEditText textInputPrice;
     private Button btnAddTitle;
 
+    String type = "expense";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +44,14 @@ public class AddItemActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                sendNewExpense(Integer.valueOf(textInputPrice.getText().toString()),
-                            textInputTitle.getText().toString());
-
+                sendNewItem(Integer.valueOf(textInputPrice.getText().toString()),
+                            textInputTitle.getText().toString(), type);
             }
         });
     }
 
-    private void sendNewExpense(Integer price, String name) {
-        Disposable disposable =new WebFactory().postItemRequest().request(price, name, "expense")
+    private void sendNewItem(Integer price, String name, String type) {
+        Disposable disposable =new WebFactory().postItemRequest().request(price, name, type)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
@@ -68,33 +67,11 @@ public class AddItemActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
-    }
-
-    private void sendNewIncome(Integer price, String name) {
-        Disposable disposable =new WebFactory().postItemRequest().request(price, name, "income")
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action() {
-                    @Override
-                    public void run() throws Exception {
-                        Toast.makeText(getApplicationContext(), getString(R.string.message_success),
-                                Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Toast.makeText(getApplicationContext(),throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
     }
 
     private TextWatcher titleTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
@@ -107,8 +84,6 @@ public class AddItemActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-
         }
     };
-
 }

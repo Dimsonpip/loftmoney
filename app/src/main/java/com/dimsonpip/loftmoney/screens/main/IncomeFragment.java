@@ -1,6 +1,5 @@
 package com.dimsonpip.loftmoney.screens.main;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,7 +47,6 @@ public class IncomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
 
-
         view.findViewById(R.id.fabMain).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,13 +54,18 @@ public class IncomeFragment extends Fragment {
                 startActivityForResult(AddItemActivityIntent, ADD_ITEM_REQUEST);
             }
         });
-
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadItems();
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        loadItems();
     }
 
     @Override
@@ -86,19 +89,15 @@ public class IncomeFragment extends Fragment {
                         }
 
                         incomeAdapter.setNewData(chargeModels);
-
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         Toast.makeText(getActivity(), throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                 });
 
         disposables.add(response);
-
     }
-
 }
 

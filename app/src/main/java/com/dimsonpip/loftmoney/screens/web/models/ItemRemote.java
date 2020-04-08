@@ -26,5 +26,4 @@ public class ItemRemote {
     public String getDate() {
         return date;
     }
-
 }

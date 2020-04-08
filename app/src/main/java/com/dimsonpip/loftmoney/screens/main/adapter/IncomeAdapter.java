@@ -38,7 +38,6 @@ public class IncomeAdapter extends RecyclerView.Adapter<IncomeAdapter.IncomeView
     @Override
     public void onBindViewHolder(@NonNull IncomeAdapter.IncomeViewHolder holder, int position) {
         holder.bind(mDataList.get(position));
-
     }
 
     @Override

@@ -11,24 +11,15 @@ public class ChargeModel implements Serializable {
     private String productName;
     private String productPrice;
 
-    public ChargeModel(String productName, String productPrice) {
-        this.id = "1";
-        this.productName = productName;
-        this.productPrice = productPrice;
-
-    }
-
     public ChargeModel(ItemRemote itemRemote) {
         this.id = itemRemote.getId();
         this.productName = itemRemote.getName();
         this.productPrice = itemRemote.getPrice() + " ₽";
-
     }
 
     public String getId() {
         return id;
     }
-
 
     public String getProductName() {
         return productName;

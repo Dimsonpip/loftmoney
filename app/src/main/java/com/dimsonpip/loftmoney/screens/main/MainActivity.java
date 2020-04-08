@@ -12,6 +12,8 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+    public int tabPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +28,5 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setText(R.string.charges);
         tabLayout.getTabAt(1).setText(R.string.income);
         tabLayout.getTabAt(2).setText(R.string.budget);
-
     }
-
-
 }

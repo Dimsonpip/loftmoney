@@ -47,7 +47,6 @@ public class ChargeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
 
-
         view.findViewById(R.id.fabMain).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,9 +59,14 @@ public class ChargeFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        loadItems();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        loadItems();
     }
 
     @Override
@@ -86,18 +90,15 @@ public class ChargeFragment extends Fragment {
                         }
 
                         chargesAdapter.setNewData(chargeModels);
-
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         Toast.makeText(getActivity(), throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                 });
 
         disposables.add(response);
 
     }
-
 }
