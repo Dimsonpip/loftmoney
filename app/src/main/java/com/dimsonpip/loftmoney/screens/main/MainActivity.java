@@ -2,10 +2,7 @@ package com.dimsonpip.loftmoney.screens.main;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -14,6 +11,8 @@ import com.dimsonpip.loftmoney.screens.main.adapter.BudgetPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
+
+    public int tabPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +29,4 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setText(R.string.income);
         tabLayout.getTabAt(2).setText(R.string.budget);
     }
-
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +18,22 @@ import com.dimsonpip.loftmoney.R;
 import com.dimsonpip.loftmoney.screens.main.adapter.ChargeModel;
 import com.dimsonpip.loftmoney.screens.main.adapter.ChargesAdapter;
 import com.dimsonpip.loftmoney.screens.second.AddItemActivity;
+import com.dimsonpip.loftmoney.screens.web.WebFactory;
+import com.dimsonpip.loftmoney.screens.web.models.GetItemResponseModel;
+import com.dimsonpip.loftmoney.screens.web.models.ItemRemote;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class ChargeFragment extends Fragment {
 
+    private List<Disposable> disposables = new ArrayList<>();
     private ChargesAdapter chargesAdapter = new ChargesAdapter();
     static int ADD_ITEM_REQUEST = 1;
 
@@ -33,7 +47,6 @@ public class ChargeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
 
-
         view.findViewById(R.id.fabMain).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,12 +59,46 @@ public class ChargeFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onStart() {
+        super.onStart();
+        loadItems();
+    }
 
-        if (requestCode == ADD_ITEM_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            ChargeModel chargeModel = (ChargeModel) data.getSerializableExtra(ChargeModel.KEY_NAME);
-            chargesAdapter.addDataToTop(chargeModel);
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        for(Disposable disposable: disposables) {
+            disposable.dispose();
         }
+        super.onStop();
+    }
+
+    private void loadItems() {
+        Disposable response = new WebFactory().getInstance().getItemRequest().request("expense")
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<GetItemResponseModel>() {
+                    @Override
+                    public void accept(GetItemResponseModel getItemResponseModel) throws Exception {
+                        List<ChargeModel> chargeModels = new ArrayList<>();
+                        for (ItemRemote itemRemote: getItemResponseModel.getData()) {
+                            chargeModels.add(new ChargeModel(itemRemote));
+                        }
+
+                        chargesAdapter.setNewData(chargeModels);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getActivity(), throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        disposables.add(response);
+
     }
 }

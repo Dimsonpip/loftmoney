@@ -6,10 +6,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dimsonpip.loftmoney.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,6 @@ public class ChargesAdapter extends RecyclerView.Adapter<ChargesAdapter.ChargesV
     @Override
     public void onBindViewHolder(@NonNull ChargesViewHolder holder, int position) {
         holder.bind(mDataList.get(position));
-
     }
 
     @Override
@@ -55,12 +55,9 @@ public class ChargesAdapter extends RecyclerView.Adapter<ChargesAdapter.ChargesV
             super(itemView);
         }
 
-        void bind(ChargeModel chargeModel) {
+        void bind(@NotNull ChargeModel chargeModel) {
             txtName.setText(chargeModel.getProductName());
             txtPrice.setText(chargeModel.getProductPrice());
-
         }
     }
-
-
 }
