@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".screens.main.MainActivity"
     android:background="@drawable/main_background"
     >
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"
-        >
-
-        <TextView
-            android:id="@+id/txtChargeName"
+        android:layout_height="wrap_content">
+    
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginBottom="11dp"
+            android:layout_height="wrap_content"
+            app:title="@string/main_header"
+            app:titleTextColor="@color/color_tool_bar_text"
+            app:layout_scrollFlags="scroll|snap"
+            app:titleMarginStart="25dp"
+            app:titleMarginTop="17dp"
+            app:titleMarginBottom="11dp"
             android:textSize="@dimen/mainList_text_size"
             android:fontFamily="sans-serif"
             android:textStyle="normal"
-            android:textColor="@color/color_tabs_text"
-            android:text="@string/main_header"
-            android:background="@color/colorPrimary"
             >
-        </TextView>
 
-    </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:tabTextColor="@color/color_tabs_text">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabTextColor="@color/color_tabs_text"
+            app:tabSelectedTextColor="@color/color_enabled_tabs_text">
 
-    </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </androidx.viewpager.widget.ViewPager>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/color_fab"
+        android:src="@drawable/ic_add_fab_14dp"
+        android:layout_margin="16dp">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-
-    
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

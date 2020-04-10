@@ -2,10 +2,10 @@
     <string name="app_name" translatable="false">Loftmoney</string>
     <string name="editText_Product_hint">Title</string>
     <string name="editText_Price_hint">Price</string>
-    <string name="btnTextAdd">✓ Add</string>
+    <string name="btnTextAdd">Add</string>
     <string name="charges">CHARGES</string>
     <string name="income">INCOMES</string>
-    <string name="budget">BUDGET</string>
+    <string name="budget">BALANCE</string>
     <string name="main_header">Budget accounting</string>
     <string name="message_success">Successfully added!</string>
 </resources>

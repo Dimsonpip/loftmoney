@@ -1,7 +1,5 @@
 package com.dimsonpip.loftmoney.screens.main;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.dimsonpip.loftmoney.R;
 import com.dimsonpip.loftmoney.screens.main.adapter.ChargeModel;
 import com.dimsonpip.loftmoney.screens.main.adapter.ChargesAdapter;
-import com.dimsonpip.loftmoney.screens.second.AddItemActivity;
 import com.dimsonpip.loftmoney.screens.web.WebFactory;
 import com.dimsonpip.loftmoney.screens.web.models.GetItemResponseModel;
 import com.dimsonpip.loftmoney.screens.web.models.ItemRemote;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,7 @@ public class ChargeFragment extends Fragment {
 
     private List<Disposable> disposables = new ArrayList<>();
     private ChargesAdapter chargesAdapter = new ChargesAdapter();
-    static int ADD_ITEM_REQUEST = 1;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -46,12 +43,12 @@ public class ChargeFragment extends Fragment {
         recyclerView.setAdapter(chargesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
-
-        view.findViewById(R.id.fabMain).setOnClickListener(new View.OnClickListener() {
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccentMain);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
-                Intent AddItemActivityIntent = new Intent(getContext(), AddItemActivity.class);
-                startActivityForResult(AddItemActivityIntent, ADD_ITEM_REQUEST);
+            public void onRefresh() {
+                loadItems();
             }
         });
 
@@ -78,6 +75,7 @@ public class ChargeFragment extends Fragment {
     }
 
     private void loadItems() {
+        swipeRefreshLayout.setRefreshing(false);
         Disposable response = new WebFactory().getInstance().getItemRequest().request("expense")
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -97,7 +95,6 @@ public class ChargeFragment extends Fragment {
                         Toast.makeText(getActivity(), throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
         disposables.add(response);
 
     }

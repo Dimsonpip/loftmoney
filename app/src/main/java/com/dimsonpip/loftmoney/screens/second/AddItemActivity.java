@@ -21,12 +21,14 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.dimsonpip.loftmoney.screens.main.MainActivity.fragmentIndex;
+
 public class AddItemActivity extends AppCompatActivity {
+
     private TextInputEditText textInputTitle;
     private TextInputEditText textInputPrice;
     private Button btnAddTitle;
-
-    String type = "expense";
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,11 @@ public class AddItemActivity extends AppCompatActivity {
 
         textInputTitle.addTextChangedListener(titleTextWatcher);
         textInputPrice.addTextChangedListener(titleTextWatcher);
+
+        if (fragmentIndex == 0){
+            type = "expense";
+        } else
+            type = "income";
 
         btnAddTitle.setOnClickListener(new View.OnClickListener() {
 
