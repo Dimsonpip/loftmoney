@@ -56,7 +56,6 @@ public class IncomeAdapter extends RecyclerView.Adapter<IncomeAdapter.IncomeView
         void bind(ChargeModel chargeModel) {
             txtName.setText(chargeModel.getProductName());
             txtPrice.setText(chargeModel.getProductPrice());
-
         }
     }
 }

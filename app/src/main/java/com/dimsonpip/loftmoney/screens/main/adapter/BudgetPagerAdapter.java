@@ -21,13 +21,13 @@ public class BudgetPagerAdapter extends FragmentPagerAdapter {
         switch(position) {
             case 0: return new ChargeFragment();
             case 1: return new IncomeFragment();
-            case 2: return new BudgetFragment();
+//            case 2: return new BudgetFragment();
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

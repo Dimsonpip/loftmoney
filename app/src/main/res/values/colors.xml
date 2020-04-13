@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3574FA</color>
     <color name="colorPrimaryDark">#0555FF</color>
     <color name="colorAccent">#dbdbdb</color>
+    <color name="colorAccentMain">#ffc107</color>
     <color name="colorText">#4A90E2</color>
     <color name="btnColorDisabled">#eaeaea</color>
     <color name="btnColorEnabled">#7ed321</color>
@@ -13,7 +14,9 @@
     <color name="color_fab">#ffc107</color>
     <color name="color_divider">#efefef</color>
     <color name="color_background_mainText">#FFFFFF</color>
-    <color name="color_tabs_text">#FFFFFF</color>
+    <color name="color_tabs_text">#b38baaef</color>
     <color name="color_income_price">#7ed321</color>
+    <color name="color_enabled_tabs_text">#ffffff</color>
+    <color name="color_tool_bar_text">#ffffff</color>
 
 </resources>
