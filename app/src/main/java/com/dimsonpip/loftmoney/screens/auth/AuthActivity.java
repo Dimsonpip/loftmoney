@@ -4,8 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,17 +32,24 @@ public class AuthActivity extends AppCompatActivity {
 
     private List<Disposable> disposables = new ArrayList<>();
     private Button btnAuth;
+    private Animation fadeOutAnimation;
+    private View layout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
+        layout = (FrameLayout) findViewById(R.id.authMainScreen);
+
+        fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.alpha);
+
         btnAuth = findViewById(R.id.btnAuthSignIn);
         btnAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSingIn();
+                layout.startAnimation(fadeOutAnimation);
                 
             }
         });

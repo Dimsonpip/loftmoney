@@ -10,5 +10,4 @@
     <string name="main_header">Учёт бюджета</string>
     <string name="message_success">Запись добавлена!</string>
     <string name="action_sing_in">ВОЙТИ</string>
-    <string name="expense_not_found">Вы ещё не добавили ни одной записи. Пожалуйста, нажмите на кнопку плюс, чтобы добавить запись.</string>
 </resources>
