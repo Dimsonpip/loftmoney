@@ -8,4 +8,6 @@
     <string name="budget">BALANCE</string>
     <string name="main_header">Budget accounting</string>
     <string name="message_success">Successfully added!</string>
+    <string name="action_sing_in">SIGN IN</string>
+    <string name="expense_not_found">There are no items. Please, press the plus button to add one.</string>
 </resources>

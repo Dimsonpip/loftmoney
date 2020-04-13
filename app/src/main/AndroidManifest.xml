@@ -14,7 +14,9 @@
 
         <activity android:name=".screens.second.AddItemActivity"
             android:theme="@style/AddItemTheme"/>
-        <activity android:name=".screens.main.MainActivity">
+        <activity android:name=".screens.main.MainActivity" />
+        <activity android:name=".screens.auth.AuthActivity" />
+        <activity android:name=".screens.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

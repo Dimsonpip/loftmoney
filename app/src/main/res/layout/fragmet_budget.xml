@@ -12,11 +12,34 @@
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="75dp">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginBottom="75dp"
+            android:visibility="gone"/>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:id="@+id/cpvFragment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cpv_animAutostart="true"
+        android:layout_gravity="center"
+        app:cpv_color="@color/colorAccentMain"
+        app:cpv_indeterminate="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/noItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        style="@style/ItemStyle"
+        android:text="@string/expense_not_found"
+        android:visibility="gone"/>
+
 </FrameLayout>

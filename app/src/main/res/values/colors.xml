@@ -18,5 +18,6 @@
     <color name="color_income_price">#7ed321</color>
     <color name="color_enabled_tabs_text">#ffffff</color>
     <color name="color_tool_bar_text">#ffffff</color>
+    <color name="blue_background_text_color">#FFFFFF</color>
 
 </resources>
