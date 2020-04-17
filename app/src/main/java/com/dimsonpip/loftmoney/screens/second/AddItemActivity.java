@@ -1,5 +1,7 @@
 package com.dimsonpip.loftmoney.screens.second;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.dimsonpip.loftmoney.R;
 import com.dimsonpip.loftmoney.screens.web.WebFactory;
+import com.dimsonpip.loftmoney.screens.web.models.AuthResponse;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -32,6 +35,8 @@ public class AddItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.slide_out_right);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
@@ -57,8 +62,20 @@ public class AddItemActivity extends AppCompatActivity {
         });
     }
 
+    private void setLoading(Boolean state){
+        textInputTitle.setEnabled(!state);
+        textInputPrice.setEnabled(!state);
+        btnAddTitle.setVisibility(state ? View.INVISIBLE : View.VISIBLE);
+    }
+
     private void sendNewItem(Integer price, String name, String type) {
-        Disposable disposable =new WebFactory().postItemRequest().request(price, name, type)
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.app_name),
+                Context.MODE_PRIVATE);
+        String authToken = sharedPreferences.getString(AuthResponse.AUTH_TOKEN_KEY, "");
+
+        setLoading(true);
+
+        Disposable disposable =new WebFactory().postItemRequest().request(price, name, type, authToken)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
@@ -71,6 +88,7 @@ public class AddItemActivity extends AppCompatActivity {
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
+                        setLoading(false);
                         Toast.makeText(getApplicationContext(),throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -9,4 +9,5 @@
     <string name="budget">БАЛАНС</string>
     <string name="main_header">Учёт бюджета</string>
     <string name="message_success">Запись добавлена!</string>
+    <string name="action_sing_in">ВОЙТИ</string>
 </resources>

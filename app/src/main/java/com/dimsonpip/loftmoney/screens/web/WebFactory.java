@@ -30,10 +30,14 @@ public class WebFactory {
 
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://verdant-violet.glitch.me/")
+                .baseUrl("https://loftschool.com/android-api/basic/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
+    }
+
+    public AuthRequest authRequest(){
+        return retrofit.create(AuthRequest.class);
     }
 
     public GetItemRequest getItemRequest() {
